@@ -20,4 +20,8 @@ class Customer(models.Model):
     country = models.CharField(max_length=50)
     postal_code = models.CharField(max_length=20)
     
+class Salesperson(models.Model):
+    salesperson_id = models.AutoField(primary_key=True)
+    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50)
     
