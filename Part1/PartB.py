@@ -5,20 +5,20 @@ class PhoneTest(unittest.TestCase):
     def setUp(self):
         self.basic_phone = Phone("Nokia", "3310", 2000, 50, "Red")
         self.smartphone = Smartphone("Apple", "iPhone 13", 2021, 999, "Slate", "iOS", 128)
-
+    #  Test if an object is an instance of a class
     def test_class_membership(self):
         self.assertIsInstance(self.basic_phone, Phone)
         self.assertIsInstance(self.smartphone, Smartphone)
-    
+    #  Test if an object is NOT an instance of a class
     def test_not_incorrect_class(self):
         self.assertNotIsInstance(self.basic_phone, Smartphone)
         self.assertNotIsInstance(self.smartphone, Phone, msg="Smartphone is a subclass of Phone")
-    
+    #  Test if 2 objects are identical
     def test_object_identity(self):
         reference_phone = self.basic_phone
         self.assertIs(self.basic_phone, reference_phone)
         self.assertIsNot(self.basic_phone, self.smartphone)
-    
+    #  Test if updates work correctly
     def test_updates(self):
         self.basic_phone.modify_price(60)
         self.assertEqual(self.basic_phone.price, 60)
