@@ -1,74 +1,75 @@
 class Phone:
-    def __init__(self, brand, model, year, price, colour):
+    def __init__(self, brand, model, release_year, cost, colour):
         self.brand = brand
         self.model = model
-        self.year = year
-        self.price = price
+        self.release_year = release_year
+        self.cost = cost
         self.colour = colour
     
-    def show_details(self):
-        print(f"Brand: {self.brand} | Model: {self.model} | Year: {self.year} | Price: {self.price} | Colour: {self.colour}")
+    def display_info(self):
+        print(f"Brand: {self.brand} | Model: {self.model} | Year: {self.release_year} | Price: {self.cost} | Colour: {self.colour}")
     
-    def modify_brand(self, brand):
+    def update_brand(self, brand):
         if isinstance(brand, str):
             self.brand = brand
     
-    def modify_model(self, model):
+    def update_model(self, model):
         if isinstance(model, str):
             self.model = model
     
-    def modify_year(self, year):
-        if isinstance(year, int):
-            self.year = year
+    def update_year(self, release_year):
+        if isinstance(release_year, int):
+            self.release_year = release_year
     
-    def modify_price(self, price):
-        if isinstance(price, (int, float)):
-            self.price = price
+    def update_price(self, cost):
+        if isinstance(cost, (int, float)):
+            self.cost = cost
     
-    def modify_colour(self, colour):
+    def update_colour(self, colour):
         if isinstance(colour, str):
             self.colour = colour
 
 class Smartphone(Phone):
-    def __init__(self, brand, model, year, price, colour, os, storage):
-        super().__init__(brand, model, year, price, colour)
-        self.os = os
-        self.storage = storage
+    def __init__(self, brand, model, release_year, cost, colour, operating_system, storage_capacity):
+        super().__init__(brand, model, release_year, cost, colour)
+        self.operating_system = operating_system
+        self.storage_capacity = storage_capacity
     
-    def show_details(self):
-        super().show_details()
-        print(f"Operating System: {self.os} | Storage: {self.storage}GB")
+    def display_info(self):
+        super().display_info()
+        print(f"Operating System: {self.operating_system} | Storage: {self.storage_capacity}GB")
     
-    def modify_os(self, os):
-        if isinstance(os, str):
-            self.os = os
+    def update_os(self, operating_system):
+        if isinstance(operating_system, str):
+            self.operating_system = operating_system
     
-    def modify_storage(self, storage):
-        if isinstance(storage, int):
-            self.storage = storage
-# Instance creation
-basic_phone = Phone("Nokia", "3310", 2000, 50, "Red")
-smartphone = Smartphone("Apple", "iPhone 13", 2021, 999, "Slate", "iOS", 128)
+    def update_storage(self, storage_capacity):
+        if isinstance(storage_capacity, int):
+            self.storage_capacity = storage_capacity
 
-# Info display
-print("Phone Info:")
-basic_phone.show_details()
-print("\nSmartphone Info:")
-smartphone.show_details()
+# Creating instances
+standard_phone = Phone("Nokia", "3310", 2000, 50, "Red")
+advanced_phone = Smartphone("Apple", "iPhone 13", 2021, 999, "Slate", "iOS", 128)
 
-# Value updates
-print("\nModifying Phone:")
-basic_phone.modify_price(50)
-basic_phone.modify_colour("Blue")
-basic_phone.modify_year("2024")
-print("Updated Phone Details:")
-basic_phone.show_details()
+# Display details
+print("Phone Details:")
+standard_phone.display_info()
+print("\nSmartphone Details:")
+advanced_phone.display_info()
 
-print("\nModifying Smartphone:")
-smartphone.modify_os("Android")
-smartphone.modify_brand("Samsung")
-smartphone.modify_model("Galaxy")
-smartphone.modify_storage(256)
-smartphone.modify_colour("Orange")
-print("Updated Smartphone Details:")
-smartphone.show_details()
+# Modifying attributes
+print("\nUpdating Phone:")
+standard_phone.update_price(60)
+standard_phone.update_colour("Blue")
+standard_phone.update_year(2024)
+print("Updated Phone Info:")
+standard_phone.display_info()
+
+print("\nUpdating Smartphone:")
+advanced_phone.update_os("Android")
+advanced_phone.update_brand("Samsung")
+advanced_phone.update_model("Galaxy")
+advanced_phone.update_storage(256)
+advanced_phone.update_colour("Orange")
+print("Updated Smartphone Info:")
+advanced_phone.display_info()

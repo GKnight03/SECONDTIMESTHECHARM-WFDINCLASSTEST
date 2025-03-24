@@ -25,3 +25,10 @@ class Salesperson(models.Model):
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
     
+class Invoice(models.Model):
+    invoice_id = models.AutoField(primary_key=True)
+    invoice_number = models.CharField(max_length=50, unique=True)
+    date = models.DateField()
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    salesperson = models.ForeignKey(Salesperson, on_delete=models.CASCADE)
