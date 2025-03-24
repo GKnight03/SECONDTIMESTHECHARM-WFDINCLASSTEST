@@ -32,3 +32,13 @@ class Invoice(models.Model):
     car = models.ForeignKey(Car, on_delete=models.CASCADE)
     customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     salesperson = models.ForeignKey(Salesperson, on_delete=models.CASCADE)
+
+class Service(models.Model):
+    service_id = models.AutoField(primary_key=True)
+    service_name = models.CharField(max_length=100)
+    hourly_rate = models.DecimalField(max_digits=10, decimal_places=2)
+
+class Mechanic(models.Model):
+    mechanic_id = models.AutoField(primary_key=True)
+    last_name = models.CharField(max_length=50)
+    first_name = models.CharField(max_length=50)
