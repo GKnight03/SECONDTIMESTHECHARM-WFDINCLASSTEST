@@ -3,50 +3,46 @@ from PartA import Phone, Smartphone
 
 class PhoneTest(unittest.TestCase):
     def setUp(self):
-        self.phone1 = Phone("Nokia", "3310", 2000, 50, "Red")
-        self.phone2 = Smartphone("Apple", "iPhone 13", 2021, 999, "Slate", "iOS", 128)
+        self.basic_phone = Phone("Nokia", "3310", 2000, 50, "Red")
+        self.smartphone = Smartphone("Apple", "iPhone 13", 2021, 999, "Slate", "iOS", 128)
 
-    # Check object class membership
     def test_class_membership(self):
-        self.assertIsInstance(self.phone1, Phone)
-        self.assertIsInstance(self.phone2, Smartphone)
+        self.assertIsInstance(self.basic_phone, Phone)
+        self.assertIsInstance(self.smartphone, Smartphone)
     
-    # Ensure object is not a member of an unrelated class
     def test_not_incorrect_class(self):
-        self.assertNotIsInstance(self.phone1, Smartphone)
-        self.assertNotIsInstance(self.phone2, Phone, msg="Smartphone is a subclass of Phone")
+        self.assertNotIsInstance(self.basic_phone, Smartphone)
+        self.assertNotIsInstance(self.smartphone, Phone, msg="Smartphone is a subclass of Phone")
     
-    # Validate object identity
     def test_object_identity(self):
-        ref_phone = self.phone1
-        self.assertIs(self.phone1, ref_phone)
-        self.assertIsNot(self.phone1, self.phone2)
+        reference_phone = self.basic_phone
+        self.assertIs(self.basic_phone, reference_phone)
+        self.assertIsNot(self.basic_phone, self.smartphone)
     
-    # Confirm updates apply
     def test_updates(self):
-        self.phone1.modify_price(60)
-        self.assertEqual(self.phone1.price, 60)
+        self.basic_phone.modify_price(60)
+        self.assertEqual(self.basic_phone.price, 60)
         
-        self.phone1.modify_colour("Blue")
-        self.assertEqual(self.phone1.colour, "Blue")
+        self.basic_phone.modify_colour("Blue")
+        self.assertEqual(self.basic_phone.colour, "Blue")
         
-        self.phone1.modify_year(2024)
-        self.assertEqual(self.phone1.year, 2024)
+        self.basic_phone.modify_year(2024)
+        self.assertEqual(self.basic_phone.year, 2024)
         
-        self.phone2.modify_os("Android")
-        self.assertEqual(self.phone2.os, "Android")
+        self.smartphone.modify_os("Android")
+        self.assertEqual(self.smartphone.os, "Android")
         
-        self.phone2.modify_brand("Samsung")
-        self.assertEqual(self.phone2.brand, "Samsung")
+        self.smartphone.modify_brand("Samsung")
+        self.assertEqual(self.smartphone.brand, "Samsung")
         
-        self.phone2.modify_model("Galaxy")
-        self.assertEqual(self.phone2.model, "Galaxy")
+        self.smartphone.modify_model("Galaxy")
+        self.assertEqual(self.smartphone.model, "Galaxy")
         
-        self.phone2.modify_storage(256)
-        self.assertEqual(self.phone2.storage, 256)
+        self.smartphone.modify_storage(256)
+        self.assertEqual(self.smartphone.storage, 256)
         
-        self.phone2.modify_colour("Orange")
-        self.assertEqual(self.phone2.colour, "Orange")
+        self.smartphone.modify_colour("Orange")
+        self.assertEqual(self.smartphone.colour, "Orange")
 
 if __name__ == "__main__":
     unittest.main()
