@@ -46,26 +46,29 @@ class Smartphone(Phone):
     def modify_storage(self, storage):
         if isinstance(storage, int):
             self.storage = storage
+# Instance creation
+basic_phone = Phone("Nokia", "3310", 2000, 50, "Red")
+smartphone = Smartphone("Apple", "iPhone 13", 2021, 999, "Slate", "iOS", 128)
 
-# Creating instances
-basic_phone = Phone("Nokia", "3310", 2000, 50, "Blue")
-smartphone = Smartphone("Apple", "iPhone 13", 2021, 999, "Black", "iOS", 128)
-
-# Display information
-print("Phone Details:")
+# Info display
+print("Phone Info:")
 basic_phone.show_details()
-print("\nSmartphone Details:")
+print("\nSmartphone Info:")
 smartphone.show_details()
 
-# Updating values
+# Value updates
 print("\nModifying Phone:")
-basic_phone.modify_price(60)
-basic_phone.modify_colour("Red")
+basic_phone.modify_price(50)
+basic_phone.modify_colour("Blue")
+basic_phone.modify_year("2024")
 print("Updated Phone Details:")
 basic_phone.show_details()
 
 print("\nModifying Smartphone:")
 smartphone.modify_os("Android")
+smartphone.modify_brand("Samsung")
+smartphone.modify_model("Galaxy")
 smartphone.modify_storage(256)
+smartphone.modify_colour("Orange")
 print("Updated Smartphone Details:")
 smartphone.show_details()
