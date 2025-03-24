@@ -1,7 +1,7 @@
 from django.db import models
 
 class Car(models.Model):
-    car_id = models.AutoField(Primary_key=True)
+    car_id = models.AutoField(primary_key=True)
     serial_number = models.CharField(max_length=100, unique=True)
     make = models.CharField(max_length=50)
     model = models.CharField(max_length=50)
