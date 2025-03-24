@@ -6,26 +6,26 @@ class Phone:
         self.price = price
         self.colour = colour
     
-    def display_info(self):
-        print(f"Brand: {self.brand}, Model: {self.model}, Year: {self.year}, Price: {self.price}, Colour: {self.colour}")
+    def show_details(self):
+        print(f"Brand: {self.brand} | Model: {self.model} | Year: {self.year} | Price: {self.price} | Colour: {self.colour}")
     
-    def update_brand(self, brand):
+    def modify_brand(self, brand):
         if isinstance(brand, str):
             self.brand = brand
     
-    def update_model(self, model):
+    def modify_model(self, model):
         if isinstance(model, str):
             self.model = model
     
-    def update_year(self, year):
+    def modify_year(self, year):
         if isinstance(year, int):
             self.year = year
     
-    def update_price(self, price):
+    def modify_price(self, price):
         if isinstance(price, (int, float)):
             self.price = price
     
-    def update_colour(self, colour):
+    def modify_colour(self, colour):
         if isinstance(colour, str):
             self.colour = colour
 
@@ -35,15 +35,15 @@ class Smartphone(Phone):
         self.os = os
         self.storage = storage
     
-    def display_info(self):
-        super().display_info()
-        print(f"OS: {self.os}, Storage: {self.storage}GB")
+    def show_details(self):
+        super().show_details()
+        print(f"Operating System: {self.os} | Storage: {self.storage}GB")
     
-    def update_os(self, os):
+    def modify_os(self, os):
         if isinstance(os, str):
             self.os = os
     
-    def update_storage(self, storage):
+    def modify_storage(self, storage):
         if isinstance(storage, int):
             self.storage = storage
 
@@ -52,21 +52,20 @@ basic_phone = Phone("Nokia", "3310", 2000, 50, "Blue")
 smartphone = Smartphone("Apple", "iPhone 13", 2021, 999, "Black", "iOS", 128)
 
 # Display information
-print("Basic Phone Information:")
-basic_phone.display_info()
-print("\nSmartphone Information:")
-smartphone.display_info()
+print("Phone Details:")
+basic_phone.show_details()
+print("\nSmartphone Details:")
+smartphone.show_details()
 
-# Performing updates
-print("\nUpdating Basic Phone:")
-basic_phone.update_price(60)
-basic_phone.update_colour("Red")
-print("Updated Basic Phone Information:")
-basic_phone.display_info()
+# Updating values
+print("\nModifying Phone:")
+basic_phone.modify_price(60)
+basic_phone.modify_colour("Red")
+print("Updated Phone Details:")
+basic_phone.show_details()
 
-print("\nUpdating Smartphone:")
-smartphone.update_os("Android")
-smartphone.update_storage(256)
-print("Updated Smartphone Information:")
-smartphone.display_info()
- 
+print("\nModifying Smartphone:")
+smartphone.modify_os("Android")
+smartphone.modify_storage(256)
+print("Updated Smartphone Details:")
+smartphone.show_details()
