@@ -51,3 +51,12 @@ class ServiceTicket(models.Model):
     date_received = models.DateField()
     comments = models.TextField()
     date_returned = models.DateField(null=True, blank=True)
+    
+class ServiceMechanic(models.Model):
+    service_mechanic_id = models.AutoField(primary_key=True)
+    service_ticket = models.ForeignKey(ServiceTicket, on_delete=models.CASCADE)
+    service = models.ForeignKey(Service, on_delete=models.CASCADE)
+    mechanic = models.ForeignKey(Mechanic, on_delete=models.CASCADE)
+    hours = models.DecimalField(max_digits=5, decimal_places=2)
+    comment = models.TextField()
+    rate = models.DecimalField(max_digits=10, decimal_places=2)
