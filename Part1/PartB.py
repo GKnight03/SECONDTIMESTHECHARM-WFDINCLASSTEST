@@ -22,7 +22,7 @@ class PhoneTest(unittest.TestCase):
         self.assertIs(self.phone1, ref_phone)
         self.assertIsNot(self.phone1, self.phone2)
     
-    # Confirm updates apply correctly
+    # Confirm updates apply
     def test_updates(self):
         self.phone1.modify_price(60)
         self.assertEqual(self.phone1.price, 60)
