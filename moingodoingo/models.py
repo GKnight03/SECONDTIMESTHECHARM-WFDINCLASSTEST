@@ -42,3 +42,12 @@ class Mechanic(models.Model):
     mechanic_id = models.AutoField(primary_key=True)
     last_name = models.CharField(max_length=50)
     first_name = models.CharField(max_length=50)
+
+class ServiceTicket(models.Model):
+    service_ticket_id = models.AutoField(primary_key=True)
+    service_ticket_number = models.CharField(max_length=50, unique=True)
+    car = models.ForeignKey(Car, on_delete=models.CASCADE)
+    customer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    date_received = models.DateField()
+    comments = models.TextField()
+    date_returned = models.DateField(null=True, blank=True)
